@@ -1,0 +1,29 @@
+
+.hwPurposeHidden {
+    display: none;
+}
+    
+.hwPurpose:hover + .hwPurposeHidden {
+    display: block;
+    color: red;
+}
+
+.sbPurposeHidden {
+    display: none;
+}
+    
+.sbPurpose:hover + .sbPurposeHidden {
+    display: block;
+    color: red;
+}
+
+.prPurposeHidden {
+    display: none;
+}
+    
+.prPurpose:hover + .prPurposeHidden {
+    display: block;
+    color: red;
+}
+
+
