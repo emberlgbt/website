@@ -1,28 +1,164 @@
 <!DOCTYPE html>
-
 <html lang="en">
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="./embersource/style.css" type="text/css" media="all">
-        <link rel="icon" href="./embersource/favicon.gif" type="image/gif">
+<head>
+    <meta http-equiv="content-type" content="text/html" charset=UTF-8>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./embersource/style.css" type="text/css" media="all">
+    <link rel="icon" href="./embersource/favicon.gif" type="image/gif">
 
-        <!-- Figured out a rainbow mouse cursor based off of the code here -->
-        <!-- License: MIT - https://github.com/tholman/cursor-effects -->
-        <script src="./embersource/browser.js"> </script>
-        <script async src="./index.js"></script>
+    <!-- Figured out a rainbow mouse cursor based off of the code here -->
+    <!-- License: MIT - https://github.com/tholman/cursor-effects -->
+    <script src="./embersource/browser.js"> </script>
+    <script async src="./index.js"></script>
 
-        <title>Ember's Establishment</title>
-    </head>
-    <body>
-        <h1>hellow</h1>
+    <!-- TODO: Dark Mode -->
+
+    <title>Ember's Establishment</title>
+    <style>
+        /* Really cool text rainbow on hover */
+        a {
+            /* color: black; */  /* How to: https://dev.to/thecodepixi/how-to-create-a-link-rainbow-hover-effect-45of */
+            font-weight: bold; 
+            background: linear-gradient(90deg, #5bcefa,  #f5a9b8, #ffffff, #f5a9b8, #5bcefa, #f5a9b8, #ffffff, #f5a9b8, #5bcefa); /* 90 deg so it's horizontally moving */
+            background-size: 200% 200%; /* zoom in so it moves */
+            background-clip: text;
+            -webkit-background-clip: text;
+            margin: auto;
+            transition: color .2s ease-in-out;
+
+        }
+
+        a:hover {
+            color: transparent;
+            transition: 500ms ease;
+            color:rgba(0,0,0,0);            
+            animation: rainbow 2s ease-in-out infinite; /* How to animate: https://codepen.io/bsander/pen/pPpbNm */
+
+        }
+
+        @keyframes rainbow { 
+            0%{background-position:left}
+            50%{background-position:right}
+            100%{background-position:left}
+        }
+
+        /* End of really cool text rainbow on hover */
+        
+
+        body {
+            --bg-color: #222;
+            --text-color: #fff;
+            background-color: var(--bg-color);
+            background: var(--bg-color);
+            color: #0f0; /* var(--text-color); */
+            font-family: "Comic Sans MS", "Comic Sans", cursive;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            list-style-position: inside;
+        }
+
+        header, section, footer {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px 0;
+            padding: 20px;
+            border: 2px solid #0f0;
+            background-color: #111;
+        }
+        header {
+            text-align: center;
+        }
+        nav a {
+            color: #0f0;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        h1, h2 {
+            margin: 10px 0;
+        }
+        .infodumps ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .infodumps li {
+            margin: 10px 0;
+        }
+
+        @media (max-width: 600px) {
+            header, section, footer {
+                width: 100%;
+                margin: 10px 0;
+                padding: 10px;
+            }
+            nav a {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+
+        #cuteIntro{
+            line-height: calc(2px + 3vmin);
+            color: #975252;
+            width: 40%;
+            font-size: calc(8px + 1vmin);
+            font-family: "Comic Sans MS", "Comic Sans", cursive;
+            text-align: left;
+            list-style-position: inside;
+            background-color: #000000;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <section id="cuteIntro">
+            <h1>hellow!</h1>
+            <h3>My name is Ember</h3>
+            <h4>I'm a catgirl TM who uses They/Them pronouns.</h4>
+            <h5>"I use arch linux"</h5>
+        </section>
+        
+        <nav>
+            <a href="#about">About Me</a>
+            <a href="#infodumps">Infodumps</a>
+            <a href="#chat">Chat</a>
+            <button class="themebtn" id="themebtn">Toggle Dark Mode</button>
+        </nav>
+    </header>
+
+    <section id="about">
         <h3>My name is Ember</h3>
         <h4>They/Them</h4>
         <h5>Aromantic, Asexual, Autistic, Agender, Awesome!</h5>
         <p>Ok, well there's a lot more to my identity than just those things, but hopefully you'll like it here at my little corner of the web. </p>
+    </section>
 
+    <section id="infodumps">
+        <h2>Infodumps</h2>
+        <div class="infodumps">
+            <ul>
+                <!-- <button onclick="location.href = 'alias_tools.html';" id="aliasbtn" class="float-left submit-button" >Aliasing Tools</button> -->
+                <!-- <li><a href="spin/alias_tools.html">Alias Tools</a></li>
+                <li><a href="spin/browsers.html">Browsers</a></li>
+                <li><a href="spin/browser_extensions.html">Browser Extensions</a></li>
+                <li><a href="spin/browser_extensions.html#iOS">Browser Extensions for iOS Specifically</a></li>
+                ^ This is for future development ^-^ -->
+                
+                <li><a href="#aliasing_tools">Alias Tools</a></li>
+                <li><a href="#browsers">Browsers</a></li>
+                <li><a href="#browser_extensions">Browser Extensions</a></li>
+                <li><a href="#browser_extensions_ios">Browser Extensions for iOS Specifically</a></li>
 
+            </ul>
+        </div>
+    </section>
 
+    <section id="infodumpTable">
         <table>
             <tr>
                 <th>Name</th>
@@ -69,7 +205,7 @@
             </tr>
         </table>
 
-        <h3>Aliasing Tools</h3>
+        <h3 id="aliasing_tools">Aliasing Tools</h3>
         <ul>
             <li><a href="https://privacy.com">Privacy</a> (Generate credit cards for each site, lock and cancel subscriptions)</li>
             <li><a href="https://1password.com">1Password</a> (Secure password manager, proprietary but audited and very reputable)</li>
@@ -83,7 +219,7 @@
         
 
 
-        <h3>Browsers</h3>
+        <h3 id="browsers">Browsers</h3>
         <ul>
             <li><a href="https://mullvad.net/en/browser">Mullvad</a> (Tor fork but without using the dark web, fingerprint resistant.)</li>
             <li><a href="https://librewolf.net/">LibreWolf</a> (Firefox without Mozilla analytics.)</li>
@@ -91,7 +227,7 @@
         </ul>
         
 
-        <h3>Browser Extensions</h3>
+        <h3 id="browser_extensions">Browser Extensions</h3>
         <ul>
             <li><a href="https://hyperweb.app/">Hyperweb</a> (Adblock, dark mode, Picture In Picture enabler (PIP), custom styles and scripts)</li>
             <li><a href="https://github.com/gorhill/uBlock">uBlock Origin</a> (AdBlock)</li>
@@ -112,7 +248,7 @@
             <li><a href="https://github.com/Cookie-AutoDelete/Cookie-AutoDelete">Cookie AutoDelete</a> (Deletes cookies after a set amount of time (Too many sweets! :D))</li>
         </ul>
         
-        <h3>Browser Extensions for iOS specifically</h3>
+        <h3 id="browser_extensions_ios">Browser Extensions for iOS specifically</h3>
         <ul>
             <li><a href="https://apps.apple.com/us/app/hyperweb/id1581824571">Hyperweb</a> (Adblock, dark mode, Picture In Picture enabler (PIP), custom styles and scripts)</li>
             <li><a href="https://apps.apple.com/us/app/xsearch-for-safari/id1579902068">xSearch</a> (Add new default search engines, automatically redirects)</li>
@@ -127,12 +263,15 @@
         <li><a href="https://www.iverify.io/">iVerify</a> (Makes sure your iPhone isn't hacked)</li>
 
         <br>
-        <!--
+    </section>
+
+    <footer id="chat">
+        <h3>Chat</h2>
+        <p>I'll probably embed a lighter queer owned chatroom soon.</p>
+        <iframe src="https://www3.cbox.ws/box/?boxid=3539193&boxtag=ZGr5h7" width="100%" height="450" allowtransparency="yes" allow="autoplay" frameborder="0" marginheight="0" marginwidth="0" scrolling="auto"></iframe>	
+            <!--
             <iframe src="https://xat.com/embed/chat.php#id=220523795&gn=EmberLGBTQ" width="650" height="486" frameborder="0" scrolling="no"></iframe><br><small><a target="_BLANK" href="https://xat.com/web_gear/chat/embed.php?id=220523795&GroupName=EmberLGBTQ">Get EmberLGBTQ chat group</a> | <a target="_BLANK" href="https://xat.com/EmberLGBTQ"> Go to EmberLGBTQ website</a></small><br>
         -->
-    </body>
+    </footer>
+</body>
 </html>
-
-
-
-
