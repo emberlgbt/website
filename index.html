@@ -60,6 +60,22 @@
             list-style-position: inside;
         }
 
+        
+        body.light {
+            --bg-color: #fff;
+            --text-color: #222;
+            background-color: var(--bg-color);
+            background: var(--bg-color);
+            color: #0f0; /* var(--text-color); */
+            /*font-family: "Comic Sans MS", "Comic Sans", cursive;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            list-style-position: inside;*/
+        }
+
         header, section, footer {
             width: 90%;
             max-width: 800px;
@@ -67,6 +83,10 @@
             padding: 20px;
             border: 2px solid #0f0;
             background-color: #111;
+        }
+        header.light, section.light, footer.light {
+            border: 2px solid #0f0;
+            background-color: #fff;
         }
         header {
             text-align: center;
@@ -112,26 +132,37 @@
             list-style-position: inside;
             background-color: #000000;
         }
+
+        #cuteIntro.light{
+            background-color: #ffffff; /* Ok but seriously, why? */
+        }
+
+        themebtn{
+            text-align: right;
+        }
     </style>
 </head>
-<body>
-    <header>
+<body id="mainBody">
+    <header id="topHeader">
         <section id="cuteIntro">
-            <h1>hellow!</h1>
+            <h1>Ember's Establishment</h1>
+            <br>
+            <h2>hellow!</h2>
             <h3>My name is Ember</h3>
-            <h4>I'm a catgirl TM who uses They/Them pronouns.</h4>
+            <h4>I'm a catgirl, octogirl/octoling, orange fox, agender human who uses They/Them pronouns.</h4>
             <h5>"I use arch linux"</h5>
         </section>
         
-        <nav>
+        <nav id="topNav">
             <a href="#about">About Me</a>
             <a href="#infodumps">Infodumps</a>
             <a href="#chat">Chat</a>
-            <button class="themebtn" id="themebtn">Toggle Dark Mode</button>
+            <button class="themebtn" id="themebtn" onclick="toggleTheme()">Toggle Theme</button>
         </nav>
     </header>
 
     <section id="about">
+        <h2>About Me</h2>
         <h3>My name is Ember</h3>
         <h4>They/Them</h4>
         <h5>Aromantic, Asexual, Autistic, Agender, Awesome!</h5>
@@ -159,6 +190,8 @@
     </section>
 
     <section id="infodumpTable">
+        <h2>Infodump Table</h2>
+        <h3>Awesome browser extensions!</h3>
         <table>
             <tr>
                 <th>Name</th>
@@ -265,13 +298,63 @@
         <br>
     </section>
 
-    <footer id="chat">
-        <h3>Chat</h2>
-        <p>I'll probably embed a lighter queer owned chatroom soon.</p>
-        <iframe src="https://www3.cbox.ws/box/?boxid=3539193&boxtag=ZGr5h7" width="100%" height="450" allowtransparency="yes" allow="autoplay" frameborder="0" marginheight="0" marginwidth="0" scrolling="auto"></iframe>	
-            <!--
-            <iframe src="https://xat.com/embed/chat.php#id=220523795&gn=EmberLGBTQ" width="650" height="486" frameborder="0" scrolling="no"></iframe><br><small><a target="_BLANK" href="https://xat.com/web_gear/chat/embed.php?id=220523795&GroupName=EmberLGBTQ">Get EmberLGBTQ chat group</a> | <a target="_BLANK" href="https://xat.com/EmberLGBTQ"> Go to EmberLGBTQ website</a></small><br>
-        -->
+    <section id="chat">
+        <h2>Chat</h2>
+            <p>I'll probably embed a lighter queer owned chatroom soon.</p>
+            <iframe title="cbox Chatroom" src="https://www3.cbox.ws/box/?boxid=3539193&boxtag=ZGr5h7" width="100%" height="450" allowtransparency="yes" allow="autoplay" frameborder="0" marginheight="0" marginwidth="0" scrolling="auto"></iframe>	
+                <!--
+                <iframe src="https://xat.com/embed/chat.php#id=220523795&gn=EmberLGBTQ" width="650" height="486" frameborder="0" scrolling="no"></iframe><br><small><a target="_BLANK" href="https://xat.com/web_gear/chat/embed.php?id=220523795&GroupName=EmberLGBTQ">Get EmberLGBTQ chat group</a> | <a target="_BLANK" href="https://xat.com/EmberLGBTQ"> Go to EmberLGBTQ website</a></small><br>
+            -->
+    </section>
+
+    <footer id="buttons">
+    <h2>Buttons</h2>
+    <h3>Clickable links to other websites that I think are cool</h3>
+        <a href="https://nekoweb.org/" alt="Neko Web symbol with a cat's face, symbols made mostly with retro terminal keyboard shapes" target="_blank"><img src="https://nekoweb.org/assets/buttons/button3.gif"></a>
+        <a href="https://espresso.nekoweb.org/" alt="Espresso on nekoweb (the homepage of a cat - everytime they get linked they are linked, espresso gets a treat!)" target="_blank"><img src="https://espresso.nekoweb.org/assets/button.png"></a>
+
+
     </footer>
 </body>
 </html>
+
+
+
+
+<script>
+let theme = localStorage.getItem('theme');
+
+    function toggleTheme() {
+
+
+        // Toggle background of body
+        document.getElementById("mainBody").classList.toggle("light");
+
+        // Toggle light background on header box
+        document.getElementById("cuteIntro").classList.toggle("light");
+
+        // Toggle for the top navigation
+        document.getElementById("topHeader").classList.toggle("light");
+
+        // Toggle all the sections 
+        document.getElementById("about").classList.toggle("light");
+        document.getElementById("infodumps").classList.toggle("light");
+        document.getElementById("infodumpTable").classList.toggle("light");
+        document.getElementById("chat").classList.toggle("light");
+        document.getElementById("buttons").classList.toggle("light");
+
+        // How did I learn this? 
+        // https://www.w3schools.com/jsref/prop_element_classlist.asp
+        // It's not as hard as you would think. Give it a try! 
+
+
+        var themebutton = document.getElementById("themebtn");
+        if(document.getElementById("about").classList == "light"){
+            themebutton.innerHTML = "Click to enable dark mode";
+        } else {
+            themebutton.innerHTML = "Click to enable light mode";
+        }
+
+    }
+
+</script>
